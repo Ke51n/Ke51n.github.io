@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>楚衣的心之所念</title>
+  
+  <subtitle>Cherry の Blog</subtitle>
+  <link href="http://cherry.github.io/atom.xml" rel="self"/>
+  
+  <link href="http://cherry.github.io/"/>
+  <updated>2024-09-28T06:11:00.038Z</updated>
+  <id>http://cherry.github.io/</id>
+  
+  <author>
+    <name>Chu Yi</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://cherry.github.io/2024/09/28/hello-world-fu-ben/"/>
+    <id>http://cherry.github.io/2024/09/28/hello-world-fu-ben/</id>
+    <published>2024-09-28T07:24:13.301Z</published>
+    <updated>2024-09-28T06:11:00.038Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://cherry.github.io/2024/09/28/hello-world/"/>
+    <id>http://cherry.github.io/2024/09/28/hello-world/</id>
+    <published>2024-09-28T05:42:32.050Z</published>
+    <updated>2024-09-28T08:00:06.515Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+</feed>
