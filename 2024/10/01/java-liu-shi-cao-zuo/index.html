@@ -4,11 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Hexo + GitHub pages + Metary搭建个人博客, JAVA,Python,C++,数据结构与算法,MySQL,springboot,随笔">
-    <meta name="description" content="快速上手参考 GitHub文档
-主题适配这里使用hexo-theme-matery主题，其他大同小异，参考 GitHub地址
-问题记录deploy失败hexo deploy之后报错，同时远程仓库并没有得到数据
-找到建立的GitHub仓库，点">
+    <meta name="keywords" content="Java8 Stream, JAVA,Python,C++,数据结构与算法,MySQL,springboot,随笔">
+    <meta name="description" content="前世今生Stream 是 Java 8 的一个特性，支持声明式处理数据，目的是为了解放程序员操作集合（Collection接口）时的生产力，其中的 Lambda 表达式——极大的提高了编程效率和程序可读性。
+直观理解流（Stream）就像是">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +18,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Hexo + GitHub pages + Metary搭建个人博客 | 楚衣的个人博客</title>
+    <title>Java8 Stream | 楚衣的个人博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -277,12 +275,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Hexo + GitHub pages + Metary搭建个人博客</h1>
+                    <h1 class="description center-align post-title">Java8 Stream</h1>
                 </div>
             </div>
         </div>
@@ -310,6 +308,22 @@
                                 <span class="chip bg-color">教程</span>
                             </a>
                         
+                            <a href="/tags/Java/">
+                                <span class="chip bg-color">Java</span>
+                            </a>
+                        
+                            <a href="/tags/stream/">
+                                <span class="chip bg-color">stream</span>
+                            </a>
+                        
+                            <a href="/tags/%E9%9B%86%E5%90%88/">
+                                <span class="chip bg-color">集合</span>
+                            </a>
+                        
+                            <a href="/tags/Java8/">
+                                <span class="chip bg-color">Java8</span>
+                            </a>
+                        
                     </div>
                     
                 </div>
@@ -322,7 +336,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2024-09-28
+                    2024-10-01
                 </div>
                 
 
@@ -346,38 +360,160 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="快速上手"><a href="#快速上手" class="headerlink" title="快速上手"></a>快速上手</h2><p>参考 <a target="_blank" rel="noopener" href="https://docs.github.com/zh/pages/quickstart">GitHub文档</a></p>
-<h2 id="主题适配"><a href="#主题适配" class="headerlink" title="主题适配"></a>主题适配</h2><p>这里使用<code>hexo-theme-matery</code>主题，其他大同小异，参考 <a target="_blank" rel="noopener" href="https://github.com/blinkfox/hexo-theme-matery/blob/develop/README_CN.md">GitHub地址</a></p>
-<h2 id="问题记录"><a href="#问题记录" class="headerlink" title="问题记录"></a>问题记录</h2><h3 id="deploy失败"><a href="#deploy失败" class="headerlink" title="deploy失败"></a>deploy失败</h3><p><code>hexo deploy</code>之后报错，同时远程仓库并没有得到数据</p>
-<p>找到建立的<code>GitHub</code>仓库，点击settings -&gt;code security 关闭以下选项</p>
-<p><img src="/2024/09/28/hexo-github-pages-metary/secret-scan.png" alt="secret-scan"></p>
-<p>同时在终端<code>hexo d</code>报错的时候有一个链接，点进去授权即可。</p>
-<h3 id="代码块显示异常"><a href="#代码块显示异常" class="headerlink" title="代码块显示异常"></a>代码块显示异常</h3><p>如下所示：</p>
-<p><img src="/2024/09/28/hexo-github-pages-metary/code-block.png" alt="code-block"></p>
-<p>从 Hexo5.0 版本开始自带了 <code>prismjs</code> 代码语法高亮的支持，本主题对此进行了改造支持。</p>
-<p>如果你的博客中曾经安装过 <code>hexo-prism-plugin</code> 的插件，那么你须要执行 <code>npm uninstall hexo-prism-plugin</code> 来卸载掉它，否则生成的代码中会有 <code>{</code> 和 <code>}</code> 的转义字符。</p>
-<p>然后在根配置文件中<strong>修改</strong>代码高亮配置为：</p>
-<pre class="line-numbers language-none"><code class="language-none">syntax_highlighter: prismjs
-highlight:
-  enable: false
-  line_number: true
-  auto_detect: false
-  tab_replace: ''
-  wrap: true
-  hljs: false
-prismjs:
-  enable: true
-  preprocess: true
-  line_number: true
-  tab_replace: ''<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+                <h2 id="前世今生"><a href="#前世今生" class="headerlink" title="前世今生"></a>前世今生</h2><p>Stream 是 Java 8 的一个特性，支持声明式处理数据，目的是为了解放程序员操作集合（Collection接口）时的生产力，其中的 Lambda 表达式——极大的提高了编程效率和程序可读性。<br><img src="/2024/10/01/java-liu-shi-cao-zuo/20241001162922.jpg"></p>
+<h2 id="直观理解"><a href="#直观理解" class="headerlink" title="直观理解"></a>直观理解</h2><p>流（Stream）就像是一条河流或者管道，数据按序流过，中间经过某些处理（筛选、排序、聚合等），最终输出一个流或者一个集合。</p>
+<p><img src="/2024/10/01/java-liu-shi-cao-zuo/image-20241001154049495.png"></p>
+<h2 id="几个特性"><a href="#几个特性" class="headerlink" title="几个特性"></a>几个特性</h2><ol>
+<li><code>Stream</code>不存储数据，而是按照特定规则顺序处理数据，一般会输出结果</li>
+<li><code>Stream</code>不改变数据源，通常情况下产生新的集合或值</li>
+<li><code>Stream</code>具有延迟执行机制，只有在调用终端操作时，中间操作才会执行## 两种操作</li>
+</ol>
+<h3 id="中间操作"><a href="#中间操作" class="headerlink" title="中间操作"></a>中间操作</h3><blockquote>
+<p>将一个流转换为另外一个流 </p>
+</blockquote>
+<p>中间操作符包含8种(排除了<code>parallel</code>, <code>sequential</code>，这两个操作并不涉及到对数据流的加工操作)：</p>
+<ol>
+<li><p><code>map(mapToInt,mapToLong,mapToDouble)</code> 转换操作符，把比如 <code>A-&gt;B</code>，这里默认提供了转<code>int</code>，<code>long</code>，<code>double</code>的操作符。</p>
+</li>
+<li><p><code>flatmap(flatmapToInt,flatmapToLong,flatmapToDouble)</code> 拍平操作比如把 <code>int[]{2,3,4}</code> 拍平 变成 2，3，4 也就是从原来的一个数据变成了3个数据，这里默认提供了拍平成<code>int</code>,<code>long</code>,<code>double</code>的操作符。</p>
+</li>
+<li><p><code>limit</code> 限流操作，比如数据流中有10个 我只要出前3个就可以使用。</p>
+</li>
+<li><p><code>distint</code> 去重操作，对重复元素去重，底层使用了<code>equals</code>方法。</p>
+</li>
+<li><p><code>filter</code> 过滤操作，把不想要的数据过滤。</p>
+</li>
+<li><p><code>peek</code> 挑出操作，如果想对数据进行某些操作，如：读取、编辑修改等。</p>
+</li>
+<li><p><code>skip</code> 跳过操作，跳过某些元素。</p>
+</li>
+<li><p><code>sorted(unordered)</code> 排序操作，对元素排序，前提是实现<code>Comparable</code>接口，当然也可以自定义比较器。</p>
+</li>
+<li><p><code>map</code>操作</p>
+<pre class="line-numbers language-JAVA" data-language="JAVA"><code class="language-JAVA">// 创建一个列表  
+List&lt;Integer&gt; list = Arrays.asList(1, 2, 3);  
+System.out.println(list);  
+  
+// 使用map操作映射  
+List&lt;Double&gt; mappedList = list.stream().map(x -&gt; Math.pow(x, 2)).collect(Collectors.toList());  
+  
+// 输出结果  
+System.out.println(mappedList);//[1.0, 4.0, 9.0]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p><code>flatmap</code>操作</p>
+<pre class="line-numbers language-JAVA" data-language="JAVA"><code class="language-JAVA">  
+// 创建一个包含多个整数列表的列表  
+List&lt;List&lt;Integer&gt;&gt; listOfLists = Arrays.asList(  
+        Arrays.asList(1, 2, 3),  
+        Arrays.asList(4, 5, 6),  
+        Arrays.asList(7, 8, 9)  
+);  
+  
+// 使用flatMap将多个列表转换为单个列表  
+List&lt;Integer&gt; flatList = listOfLists.stream()  
+        .flatMap(List::stream)  
+        .collect(Collectors.toList());  
+  
+// 输出扁平化后的列表  
+System.out.println(flatList);//[1, 2, 3, 4, 5, 6, 7, 8, 9]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p><code>limit</code>操作</p>
+<pre class="line-numbers language-JAVA" data-language="JAVA"><code class="language-JAVA">// 创建一个列表  
+List&lt;Integer&gt; list = Arrays.asList(1, 2, 3);  
+System.out.println(list);  
+  
+// 使用LIMIT操作  
+List&lt;Integer&gt; mappedList = list.stream().limit(2).collect(Collectors.toList());  
+  
+// 输出结果  
+System.out.println(mappedList);//[1,2]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p><code>distint</code>操作</p>
+<pre class="line-numbers language-JAVA" data-language="JAVA"><code class="language-JAVA">// 创建一个列表  
+List&lt;Integer&gt; list = Arrays.asList(1, 2, 3, 2, 4, 3);  
+System.out.println(list);  
+  
+// 使用 distinct 操作  
+List&lt;Integer&gt; mappedList = list.stream().distinct().collect(Collectors.toList());  
+  
+// 输出结果  
+System.out.println(mappedList);//[1, 2, 3, 4]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>filter操作</p>
+<pre class="line-numbers language-JAVA" data-language="JAVA"><code class="language-JAVA">// 创建一个列表  
+List&lt;Integer&gt; list = Arrays.asList(1, 2, 3, 2, 4, 3);  
+System.out.println(list);  
+  
+// 使用 filter 操作  
+List&lt;Integer&gt; mappedList = list.stream().filter(x -&gt; (x &amp; 1) == 1).collect(Collectors.toList());  
+  
+// 输出结果  
+System.out.println(mappedList);//[1, 3, 3]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h3 id="结束操作"><a href="#结束操作" class="headerlink" title="结束操作"></a>结束操作</h3><blockquote>
+<p>AKA terminal operation（终端/终止操作）</p>
+</blockquote>
+<p>数据经过中间加工操作，最后遇到终止操作；终止操作符就是用来对数据进行收集或者消费的，数据到了终止操作这里就不会向下流动了，<strong>终止操作符只能使用一次</strong>。</p>
+<ul>
+<li><code>collect</code>：收集操作，将所有数据收集起来，这个操作非常重要，官方提供的<code>Collectors</code>提供了非常多收集器，可以说Stream的核心在于<code>Collectors</code>。</li>
+<li><code>count</code>：统计操作，统计最终的数据个数。</li>
+<li><code>findFirst</code>、<code>findAny</code>：查找操作，查找第一个、查找任何一个，返回的类型为<code>Optional</code>。</li>
+<li><code>noneMatch</code>、<code>allMatch</code>、<code>anyMatch</code>：匹配操作，数据流中是否存在符合条件的元素，返回值为bool值。</li>
+<li><code>min</code>、<code>max</code>：最值操作，需要自定义比较器，返回数据流中最大最小的值。</li>
+<li><code>reduce</code>：规约操作，将整个数据流的值规约为一个值，<code>count</code>、<code>min</code>、<code>max</code>底层就是使用<code>reduce</code>。</li>
+<li><code>forEach</code>、<code>forEachOrdered</code>：遍历操作，这里就是对最终的数据进行消费了。</li>
+<li><code>toArray</code>：数组操作，将数据流的元素转换成数组。</li>
+</ul>
+<h2 id="定义流"><a href="#定义流" class="headerlink" title="定义流"></a>定义流</h2><p>定义一个流对象（<code>Stream</code>）有以下几种方式：<br>方法一：通过<code>java.util.Collection.stream()</code>方法</p>
+<pre class="line-numbers language-JAVA" data-language="JAVA"><code class="language-JAVA">default Stream&lt;E&gt; stream() {  
+    return StreamSupport.stream(spliterator(), false);  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-JAVA" data-language="JAVA"><code class="language-JAVA">public class Main {  
+    public static void main(String[] args) {  
+        List&lt;Integer&gt; list = Arrays.asList(1, 2, 3, 4, 5, 6);  
+        Stream&lt;Integer&gt; stream = list.stream();  
+        stream.forEach(System.out::println);  
+    }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-none"><code class="language-none">1
+2
+3
+4
+5
+6<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>方法二：2、使用<code>java.util.Arrays.stream(T[] array)</code>方法用数组创建流</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">int[] array={1,3,5,6,8};  
+IntStream stream2 = Arrays.stream(array);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<p>最后执行<code>hexo clean</code> 和 <code>hexo server</code></p>
-<h3 id="托管到GitHub-Pages显示404"><a href="#托管到GitHub-Pages显示404" class="headerlink" title="托管到GitHub Pages显示404"></a>托管到GitHub Pages显示404</h3><p><img src="/2024/09/28/hexo-github-pages-metary/404.png" alt="404"></p>
-<p>创建的<code>xxx.github.io</code>里的<code>xxx</code>要和你的<code>GitHub</code>用户名一样,（PS：用户名可以修改，在设置-&gt;账户里）</p>
-<p><img src="/2024/09/28/hexo-github-pages-metary/new.png" alt="new"></p>
-<h3 id="图片显示失败"><a href="#图片显示失败" class="headerlink" title="图片显示失败"></a>图片显示失败</h3><p>方式1：<code>typora</code>+图片链接替换<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/476601594">Hexo 发布博客的图片和公式问题</a></p>
-<p>方式2：（推荐） <strong>Obsidian</strong> ，可以在本地显示图片 <a target="_blank" rel="noopener" href="https://publish.obsidian.md/chinesehelp/01+2021%E6%96%B0%E6%95%99%E7%A8%8B/2021%E5%B9%B4%E6%96%B0%E6%95%99%E7%A8%8B"><strong>Obsidian</strong>教程</a></p>
+<p>方法三：使用<code>Stream</code>的静态方法：<code>of()、iterate()、generate()</code></p>
+<pre class="line-numbers language-JAVA" data-language="JAVA"><code class="language-JAVA">Stream&lt;Integer&gt; stream3 = Stream.of(1, 2, 3, 4, 5, 6);  
+  
+Stream&lt;Integer&gt; stream4 = Stream.iterate(0, (x) -&gt; x + 3).limit(4);  
+stream4.forEach(System.out::println);//0 3 6 9  
+  
+Stream&lt;Double&gt; stream5 = Stream.generate(new Random()::nextGaussian).limit(3);  
+stream5.forEach(System.out::println);  
+//-0.7725940408383488  
+//-1.7799169104768222  
+//2.443342791303781<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<h2 id="顺序流和并行流"><a href="#顺序流和并行流" class="headerlink" title="顺序流和并行流"></a>顺序流和并行流</h2><ul>
+<li><code>stream</code>是顺序流，由主线程按顺序对流执行操作；&nbsp;</li>
+<li><code>parallelStream</code>是并行流，内部以多线程并行执行的方式对流进行操作，但前提是流中的数据处理没有顺序要求。<br>例如筛选集合中的奇数，两者的处理不同之处：<br><img src="/2024/10/01/java-liu-shi-cao-zuo/20241001171504.png"><br>下面给出一个求前一千万个整数当中所有的奇数的两种流式操作对比，可以看到处理时间上天壤之别。</li>
+</ul>
+<pre class="line-numbers language-JAVA" data-language="JAVA"><code class="language-JAVA">List&lt;Integer&gt; list = IntStream.rangeClosed(1, 10000000).boxed().collect(Collectors.toList());  
+Stream&lt;Integer&gt; stream6 = list.stream();  
+Stream&lt;Integer&gt; stream7 = list.parallelStream();  
+  
+StopWatch stopWatch = StopWatch.createStarted();  
+List&lt;Integer&gt; collect1 = stream6.filter(x -&gt; (x &amp; 1) == 1).collect(Collectors.toList());  
+stopWatch.stop();  
+System.out.printf("串行流耗时%s ms",stopWatch.getTime());  
+System.out.println();  
+  
+stopWatch.reset();  
+stopWatch.start();  
+List&lt;Integer&gt; collect2 = stream7.filter(x -&gt; (x &amp; 1) == 1).collect(Collectors.toList());  
+stopWatch.stop();  
+System.out.printf("并行流耗时%s ms",stopWatch.getTime());  
+//顺序流耗时2215 ms  
+//并行流耗时97 ms<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
                 
             </div>
             <hr/>
@@ -403,7 +539,7 @@ prismjs:
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://cherry.github.io/2024/09/28/hexo-github-pages-metary/">http://cherry.github.io/2024/09/28/hexo-github-pages-metary/</a>
+                    <a href="http://cherry.github.io/2024/10/01/java-liu-shi-cao-zuo/">http://cherry.github.io/2024/10/01/java-liu-shi-cao-zuo/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -443,6 +579,22 @@ prismjs:
                             
                                 <a href="/tags/%E6%95%99%E7%A8%8B/">
                                     <span class="chip bg-color">教程</span>
+                                </a>
+                            
+                                <a href="/tags/Java/">
+                                    <span class="chip bg-color">Java</span>
+                                </a>
+                            
+                                <a href="/tags/stream/">
+                                    <span class="chip bg-color">stream</span>
+                                </a>
+                            
+                                <a href="/tags/%E9%9B%86%E5%90%88/">
+                                    <span class="chip bg-color">集合</span>
+                                </a>
+                            
+                                <a href="/tags/Java8/">
+                                    <span class="chip bg-color">Java8</span>
                                 </a>
                             
                         </div>
@@ -521,9 +673,10 @@ prismjs:
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2024/10/01/java-liu-shi-cao-zuo/">
                     <div class="card-image">
@@ -541,9 +694,9 @@ prismjs:
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2024-10-01
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-10-01
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -552,6 +705,7 @@ prismjs:
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -586,13 +740,13 @@ prismjs:
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2024/09/28/hello-world/">
+                <a href="/2024/09/28/hexo-github-pages-metary/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="Hexo Starter">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Hexo + GitHub pages + Metary搭建个人博客">
                         
-                        <span class="card-title">Hexo Starter</span>
+                        <span class="card-title">Hexo + GitHub pages + Metary搭建个人博客</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -616,8 +770,8 @@ prismjs:
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/test/">
-                        <span class="chip bg-color">test</span>
+                    <a href="/tags/%E6%95%99%E7%A8%8B/">
+                        <span class="chip bg-color">教程</span>
                     </a>
                     
                 </div>

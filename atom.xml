@@ -6,7 +6,7 @@
   <link href="http://cherry.github.io/atom.xml" rel="self"/>
   
   <link href="http://cherry.github.io/"/>
-  <updated>2024-09-28T13:03:49.073Z</updated>
+  <updated>2024-10-01T15:26:54.700Z</updated>
   <id>http://cherry.github.io/</id>
   
   <author>
@@ -17,11 +17,42 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Java8 Stream</title>
+    <link href="http://cherry.github.io/2024/10/01/java-liu-shi-cao-zuo/"/>
+    <id>http://cherry.github.io/2024/10/01/java-liu-shi-cao-zuo/</id>
+    <published>2024-10-01T07:18:49.000Z</published>
+    <updated>2024-10-01T15:26:54.700Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前世今生&quot;&gt;&lt;a href=&quot;#前世今生&quot; class=&quot;headerlink&quot; title=&quot;前世今生&quot;&gt;&lt;/a&gt;前世今生&lt;/h2&gt;&lt;p&gt;Stream 是 Java 8</summary>
+        
+      
+    
+    
+    
+    
+    <category term="教程" scheme="http://cherry.github.io/tags/%E6%95%99%E7%A8%8B/"/>
+    
+    <category term="Java" scheme="http://cherry.github.io/tags/Java/"/>
+    
+    <category term="stream" scheme="http://cherry.github.io/tags/stream/"/>
+    
+    <category term="集合" scheme="http://cherry.github.io/tags/%E9%9B%86%E5%90%88/"/>
+    
+    <category term="Java8" scheme="http://cherry.github.io/tags/Java8/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Hexo + GitHub pages + Metary搭建个人博客</title>
     <link href="http://cherry.github.io/2024/09/28/hexo-github-pages-metary/"/>
     <id>http://cherry.github.io/2024/09/28/hexo-github-pages-metary/</id>
     <published>2024-09-28T11:44:34.000Z</published>
-    <updated>2024-09-28T13:03:49.073Z</updated>
+    <updated>2024-10-01T07:40:05.383Z</updated>
     
     
       
@@ -44,7 +75,7 @@
     <link href="http://cherry.github.io/2024/09/28/hello-world/"/>
     <id>http://cherry.github.io/2024/09/28/hello-world/</id>
     <published>2024-09-28T05:42:32.050Z</published>
-    <updated>2024-09-28T12:02:07.795Z</updated>
+    <updated>2024-10-01T06:58:24.695Z</updated>
     
     
       
