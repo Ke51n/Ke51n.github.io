@@ -366,30 +366,18 @@
 <h2 id="几个特性"><a href="#几个特性" class="headerlink" title="几个特性"></a>几个特性</h2><ol>
 <li><code>Stream</code>不存储数据，而是按照特定规则顺序处理数据，一般会输出结果</li>
 <li><code>Stream</code>不改变数据源，通常情况下产生新的集合或值</li>
-<li><code>Stream</code>具有延迟执行机制，只有在调用终端操作时，中间操作才会执行## 两种操作</li>
+<li><code>Stream</code>具有延迟执行机制，只有在调用终端操作时，中间操作才会执行</li>
 </ol>
-<h3 id="中间操作"><a href="#中间操作" class="headerlink" title="中间操作"></a>中间操作</h3><blockquote>
+<h2 id="两种操作"><a href="#两种操作" class="headerlink" title="两种操作"></a>两种操作</h2><h3 id="中间操作"><a href="#中间操作" class="headerlink" title="中间操作"></a>中间操作</h3><blockquote>
 <p>将一个流转换为另外一个流 </p>
 </blockquote>
 <p>中间操作符包含8种(排除了<code>parallel</code>, <code>sequential</code>，这两个操作并不涉及到对数据流的加工操作)：</p>
 <ol>
-<li><p><code>map(mapToInt,mapToLong,mapToDouble)</code> 转换操作符，把比如 <code>A-&gt;B</code>，这里默认提供了转<code>int</code>，<code>long</code>，<code>double</code>的操作符。</p>
-</li>
-<li><p><code>flatmap(flatmapToInt,flatmapToLong,flatmapToDouble)</code> 拍平操作比如把 <code>int[]{2,3,4}</code> 拍平 变成 2，3，4 也就是从原来的一个数据变成了3个数据，这里默认提供了拍平成<code>int</code>,<code>long</code>,<code>double</code>的操作符。</p>
-</li>
-<li><p><code>limit</code> 限流操作，比如数据流中有10个 我只要出前3个就可以使用。</p>
-</li>
-<li><p><code>distint</code> 去重操作，对重复元素去重，底层使用了<code>equals</code>方法。</p>
-</li>
-<li><p><code>filter</code> 过滤操作，把不想要的数据过滤。</p>
-</li>
-<li><p><code>peek</code> 挑出操作，如果想对数据进行某些操作，如：读取、编辑修改等。</p>
-</li>
-<li><p><code>skip</code> 跳过操作，跳过某些元素。</p>
-</li>
-<li><p><code>sorted(unordered)</code> 排序操作，对元素排序，前提是实现<code>Comparable</code>接口，当然也可以自定义比较器。</p>
-</li>
-<li><p><code>map</code>操作</p>
+<li><code>map</code>操作<br>用于将流中的元素转换为其他形式或类型。它通过一个 Function 接口的实现，将流中的每个元素应用一个函数，并将结果收集到一个新的流中。<code>map</code> 方法广泛应用于以下场景：</li>
+</ol>
+<ul>
+<li>数据转换：将流中的元素转换为另一种形式。</li>
+<li>数据处理：对流中的元素应用特定的处理逻辑。<pre class="line-numbers language-JAVA" data-language="JAVA"><code class="language-JAVA">&lt;R&gt; Stream&lt;R&gt; map(Function&lt;? super T, ? extends R&gt; mapper);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <pre class="line-numbers language-JAVA" data-language="JAVA"><code class="language-JAVA">// 创建一个列表  
 List&lt;Integer&gt; list = Arrays.asList(1, 2, 3);  
 System.out.println(list);  
@@ -399,7 +387,10 @@ List&lt;Double&gt; mappedList = list.stream().map(x -&gt; Math.pow(x, 2)).collec
   
 // 输出结果  
 System.out.println(mappedList);//[1.0, 4.0, 9.0]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p><code>flatmap</code>操作</p>
+</ul>
+<ol start="2">
+<li><p><code>flatmap(flatmapToInt,flatmapToLong,flatmapToDouble)</code> 拍平操作比如把 <code>int[]{2,3,4}</code> 拍平 变成 2，3，4 也就是从原来的一个数据变成了3个数据，这里默认提供了拍平成<code>int</code>,<code>long</code>,<code>double</code>的操作符。</p>
+<pre class="line-numbers language-JAVA" data-language="JAVA"><code class="language-JAVA">&lt;R&gt; Stream&lt;R&gt; flatMap(Function&lt;? super T, ? extends Stream&lt;? extends R&gt;&gt; mapper);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <pre class="line-numbers language-JAVA" data-language="JAVA"><code class="language-JAVA">  
 // 创建一个包含多个整数列表的列表  
 List&lt;List&lt;Integer&gt;&gt; listOfLists = Arrays.asList(  
@@ -416,7 +407,7 @@ List&lt;Integer&gt; flatList = listOfLists.stream()
 // 输出扁平化后的列表  
 System.out.println(flatList);//[1, 2, 3, 4, 5, 6, 7, 8, 9]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p><code>limit</code>操作</p>
+<li><p><code>limit</code> 限流操作，比如数据流中有<code>3</code>个 我只要前<code>2</code>个</p>
 <pre class="line-numbers language-JAVA" data-language="JAVA"><code class="language-JAVA">// 创建一个列表  
 List&lt;Integer&gt; list = Arrays.asList(1, 2, 3);  
 System.out.println(list);  
@@ -426,7 +417,7 @@ List&lt;Integer&gt; mappedList = list.stream().limit(2).collect(Collectors.toLis
   
 // 输出结果  
 System.out.println(mappedList);//[1,2]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p><code>distint</code>操作</p>
+<li><p><code>distinct</code> 去重操作，对重复元素去重，底层使用了<code>equals</code>方法。</p>
 <pre class="line-numbers language-JAVA" data-language="JAVA"><code class="language-JAVA">// 创建一个列表  
 List&lt;Integer&gt; list = Arrays.asList(1, 2, 3, 2, 4, 3);  
 System.out.println(list);  
@@ -437,7 +428,8 @@ List&lt;Integer&gt; mappedList = list.stream().distinct().collect(Collectors.toL
 // 输出结果  
 System.out.println(mappedList);//[1, 2, 3, 4]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p>filter操作</p>
+<li><p><code>filter</code> 过滤操作，只过滤出符合断言条件的数据。</p>
+<pre class="line-numbers language-JAVA" data-language="JAVA"><code class="language-JAVA">Stream&lt;T&gt; filter(Predicate&lt;? super T&gt; predicate);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <pre class="line-numbers language-JAVA" data-language="JAVA"><code class="language-JAVA">// 创建一个列表  
 List&lt;Integer&gt; list = Arrays.asList(1, 2, 3, 2, 4, 3);  
 System.out.println(list);  
@@ -447,18 +439,87 @@ List&lt;Integer&gt; mappedList = list.stream().filter(x -&gt; (x &amp; 1) == 1).
   
 // 输出结果  
 System.out.println(mappedList);//[1, 3, 3]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p><code>peek</code>操作，是一个中间操作，函数签名如下：</p>
+<pre class="line-numbers language-JAVA" data-language="JAVA"><code class="language-JAVA">Stream&lt;T&gt; peek(Consumer&lt;? super T&gt; action) <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><strong>参数</strong>：将<code>Consumer</code>作为操作方法传递。<br><strong>返回</strong>：该方法返回一个新的流。<br><code>peek</code>方法主要用于调试，以便在元素流过管道中的某个点时查看它们。<br><code>peek</code>方法是中间方法，因此在调用终端方法之前它不会执行。</p>
+<pre class="line-numbers language-none"><code class="language-none">Stream.of(10, 20, 30).peek(e -&gt; System.out.println(e)); <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>不会有输出。<br>现在在上面的代码中使用一个终端方法</p>
+<pre class="line-numbers language-JAVA" data-language="JAVA"><code class="language-JAVA">Stream.of(10, 20, 30).peek(e -&gt; System.out.println(e))
+    .collect(Collectors.toList()); 
+10 20 30  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p><code>peek</code>在调试中的作用：</p>
+<pre class="line-numbers language-JAVA" data-language="JAVA"><code class="language-JAVA">Stream.of(10, 11, 12, 13)
+ .filter(n -&gt; n % 2 == 0)
+ .peek(e -&gt; System.out.println("Debug filtered value: " + e))
+ .map(n -&gt; n * 10)
+ .peek(e -&gt; System.out.println("Debug mapped value: " + e))
+ .collect(Collectors.toList()); 
+
+Debug filtered value: 10
+Debug mapped value: 100
+Debug filtered value: 12
+Debug mapped value: 120 
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p><code>skip</code> 跳过操作，跳过前<code>n</code>个元素。</p>
+<pre class="line-numbers language-JAVA" data-language="JAVA"><code class="language-JAVA">Stream&lt;T&gt; skip(long n);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-JAVA" data-language="JAVA"><code class="language-JAVA">List&lt;Integer&gt; list = Arrays.asList(1, 2, 3, 2, 4, 3);  
+List&lt;Integer&gt; collect = list.stream().skip(3).collect(Collectors.toList());  
+System.out.println(collect);//[2,4,3]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+<li><p><code>sorted(unordered)</code> 排序操作，对元素排序，前提是实现<code>Comparable</code>接口，当然也可以自定义比较器。</p>
+<pre class="line-numbers language-JAVA" data-language="JAVA"><code class="language-JAVA">List&lt;Integer&gt; list = Arrays.asList(1, 2, 3, 2, 4, 3);  
+List&lt;Integer&gt; collect = list.stream().sorted().collect(Collectors.toList());  
+System.out.println(collect);//[1, 2, 2, 3, 3, 4]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
 </ol>
 <h3 id="结束操作"><a href="#结束操作" class="headerlink" title="结束操作"></a>结束操作</h3><blockquote>
 <p>AKA terminal operation（终端/终止操作）</p>
 </blockquote>
-<p>数据经过中间加工操作，最后遇到终止操作；终止操作符就是用来对数据进行收集或者消费的，数据到了终止操作这里就不会向下流动了，<strong>终止操作符只能使用一次</strong>。</p>
+<p>数据经过中间加工操作，最后遇到终止操作；终止操作符就是用来对数据进行收集或者消费的，数据到了终止操作这里就不会向下流动了，<strong>终止操作符只能使用一次</strong>。只有遇到终止操作时，中间操作才会真正执行。</p>
 <ul>
-<li><code>collect</code>：收集操作，将所有数据收集起来，这个操作非常重要，官方提供的<code>Collectors</code>提供了非常多收集器，可以说Stream的核心在于<code>Collectors</code>。</li>
-<li><code>count</code>：统计操作，统计最终的数据个数。</li>
-<li><code>findFirst</code>、<code>findAny</code>：查找操作，查找第一个、查找任何一个，返回的类型为<code>Optional</code>。</li>
-<li><code>noneMatch</code>、<code>allMatch</code>、<code>anyMatch</code>：匹配操作，数据流中是否存在符合条件的元素，返回值为bool值。</li>
-<li><code>min</code>、<code>max</code>：最值操作，需要自定义比较器，返回数据流中最大最小的值。</li>
-<li><code>reduce</code>：规约操作，将整个数据流的值规约为一个值，<code>count</code>、<code>min</code>、<code>max</code>底层就是使用<code>reduce</code>。</li>
+<li><code>collect</code>：收集操作，将所有数据收集起来，这个操作非常重要，官方提供的<code>Collectors</code>提供了非常多收集器，可以说Stream的核心在于<code>Collectors</code>。<pre class="line-numbers language-JAVA" data-language="JAVA"><code class="language-JAVA">List&lt;Integer&gt; list = Arrays.asList(1, 2, 3, 2, 4, 3);  
+List&lt;Integer&gt; collect = list.stream().sorted().collect(Collectors.toList());  
+System.out.println(collect);//[1, 2, 2, 3, 3, 4]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+<li><code>count</code>：统计操作，统计最终的数据个数。<pre class="line-numbers language-JAVA" data-language="JAVA"><code class="language-JAVA">List&lt;Integer&gt; list = Arrays.asList(1, 2, 3, 2, 4, 3);  
+long count = list.stream().skip(3).count();  
+System.out.println(count);//3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+<li><code>findFirst</code>、<code>findAny</code>：查找操作，查找第一个、查找任何一个，返回的类型为<code>Optional</code>。<pre class="line-numbers language-JAVA" data-language="JAVA"><code class="language-JAVA">List&lt;Integer&gt; list = Arrays.asList(1, 3, 2, 4, 5, 2);  
+Optional&lt;Integer&gt; first = list.stream().findFirst();  
+Integer i = first.get();  
+System.out.println(i);//1
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><code>noneMatch</code>、<code>allMatch</code>、<code>anyMatch</code>：匹配操作，数据流中是否存在符合条件的元素，返回值为<code>bool</code>值。<pre class="line-numbers language-JAVA" data-language="JAVA"><code class="language-JAVA">List&lt;Integer&gt; list = Arrays.asList(1, 3, 2, 4, 3, 2);  
+boolean noneMatch1 = list.stream().noneMatch(x -&gt; x &gt; 4);  
+boolean noneMatch2 = list.stream().noneMatch(x -&gt; x &gt; 3);  
+boolean noneMatch3 = list.stream().anyMatch(x -&gt; x &gt; 3);  
+boolean noneMatch4 = list.stream().allMatch(x -&gt; x &gt; 3);  
+  
+System.out.println(noneMatch1);//true  
+System.out.println(noneMatch2);//false  
+System.out.println(noneMatch3);//true  
+System.out.println(noneMatch4);//false<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><code>min</code>、<code>max</code>：最值操作，需要自定义比较器，返回数据流中最大最小的值。<pre class="line-numbers language-JAVA" data-language="JAVA"><code class="language-JAVA">List&lt;Integer&gt; list = Arrays.asList(1, 3, 2, 4, 3, 2);  
+Optional&lt;Integer&gt; max = list.stream().max(Integer::compareTo);  
+Optional&lt;Integer&gt; min = list.stream().min(Integer::compareTo);  
+  
+System.out.println(max.get());//4  
+System.out.println(min.get());//1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><code>reduce</code>：规约操作，将整个数据流的值规约为一个值，<code>count</code>、<code>min</code>、<code>max</code>底层就是使用<code>reduce</code>。<br>该操作有<code>3</code>个函数签名，分别为：<pre class="line-numbers language-JAVA" data-language="JAVA"><code class="language-JAVA">1. Optional&lt;T&gt; reduce(BinaryOperator&lt;T&gt; accumulator);
+
+2. T reduce(T identity, BinaryOperator&lt;T&gt; accumulator);
+3. &lt;U&gt; U reduce(U identity,  
+             BiFunction&lt;U, ? super T, U&gt; accumulator,  
+             BinaryOperator&lt;U&gt; combiner);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p><code>Identity</code> : 定义一个元素代表是归并操作的初始值，如果<code>Stream</code> 是空的，也是<code>Stream</code> 的默认结果<br><code>Accumulator</code>: 定义一个带两个参数的函数，第一个参数是上个归并函数的返回值，第二个是<code>Stream</code> 中下一个元素。<br><code>Combiner</code>: 调用一个函数来组合归并操作的结果，当归并是并行执行或者当累加器的函数和累加器的实现类型不匹配时才会调用此函数。 下面的代码无法通过编译</p>
+</blockquote>
+<pre class="line-numbers language-JAVA" data-language="JAVA"><code class="language-JAVA">List&lt;User&gt; users = Arrays.asList(new User("John", 30), new User("Julie", 35));
+int computedAges = 
+  users.stream().reduce(0, (partialAgeResult, user) -&gt; partialAgeResult + user.getAge());
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+上代码无法编译的原因是，流中包含的是User 对象，但是累加函数的参数分别是数字和user 对象，而累加器的实现是求和，所以编译器无法推断参数 user 的类型。可以把代码改为如下可以通过编译<pre class="line-numbers language-JAVA" data-language="JAVA"><code class="language-JAVA">int result = users.stream()
+  .reduce(0, (partialAgeResult, user) -&gt; partialAgeResult + user.getAge(), Integer::sum);
+assertThat(result).isEqualTo(65);
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
 <li><code>forEach</code>、<code>forEachOrdered</code>：遍历操作，这里就是对最终的数据进行消费了。</li>
 <li><code>toArray</code>：数组操作，将数据流的元素转换成数组。</li>
 </ul>
